@@ -4,6 +4,7 @@ mongodb_repository:
   "4.0": "https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/$basearch/"
   "4.2": "https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/$basearch/"
   "4.4": "https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.4/$basearch/"
+  "5.0": "https://mirrors.tuna.tsinghua.edu.cn/mongodb/yum/el$releasever-5.0/"
 
 mongodb_repository_gpgkey:
   "3.6": "https://www.mongodb.org/static/pgp/server-3.6.asc"
