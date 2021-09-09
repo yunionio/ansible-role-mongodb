@@ -23,6 +23,9 @@ mongodb_disable_transparent_hugepages: false
 
 mongodb_use_numa: true
 
+mongodb_repo: https://mirrors.tuna.tsinghua.edu.cn/mongodb/yum/el$releasever-5.0/
+pypi_custom_host: ""
+
 mongodb_user: "{{ 'mongod' if ('RedHat' == ansible_os_family) else 'mongodb' }}"
 mongodb_uid:
 mongodb_gid:

@@ -4,11 +4,6 @@
   set_fact:
     mongodb_major_version: "{{ mongodb_version[0:3] | string  }}"
 
-- name: Install EPEL release repository
-  package:
-    name: epel-release
-    state: present
-
 - name: Add YUM repository
   template:
     src: mongodb.repo.j2
@@ -51,4 +46,5 @@
     state: "{{ mongodb_pymongo_pip_version is defined | ternary('present', 'latest') }}"
     version: "{{ mongodb_pymongo_pip_version | default(omit) }}"
     executable: "{{ mongodb_pip_executable }}"
+    extra_args: "-i {{ pypi_custom_host }}/pypi/simple --trusted-host {{ pypi_custom_host | urlsplit('hostname') }}"
   when: mongodb_pymongo_from_pip | bool

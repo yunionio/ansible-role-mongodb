@@ -4,7 +4,7 @@ mongodb_repository:
   "4.0": "https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/$basearch/"
   "4.2": "https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/$basearch/"
   "4.4": "https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.4/$basearch/"
-  "5.0": "https://mirrors.tuna.tsinghua.edu.cn/mongodb/yum/el$releasever-5.0/"
+  "5.0": "{{ mongodb_repo }}"
 
 mongodb_repository_gpgkey:
   "3.6": "https://www.mongodb.org/static/pgp/server-3.6.asc"
@@ -18,6 +18,6 @@ yum_lock_timeout: 180
 
 mongodb_pymongo_package: "{{ 'python3-pymongo' if ansible_facts['python'].version.major == 3 else 'python-pymongo' }}"
 mongodb_pymongo_deps:
-  - "{{ 'python3-devel' if ansible_facts['python'].version.major == 3 else 'python-devel' }}"
-  - "{{ 'python3-pip' if ansible_facts['python'].version.major == 3 else 'python-pip' }}"
-mongodb_pip_executable: "{{ 'pip3' if ansible_facts['python'].version.major == 3 else 'pip' }}"
+  - python3-devel
+  - python3-pip
+mongodb_pip_executable: pip3
