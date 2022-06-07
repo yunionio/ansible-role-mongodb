@@ -46,5 +46,7 @@
     state: "{{ mongodb_pymongo_pip_version is defined | ternary('present', 'latest') }}"
     version: "{{ mongodb_pymongo_pip_version | default(omit) }}"
     executable: "{{ mongodb_pip_executable }}"
-    extra_args: "-i {{ pypi_custom_host }}/pypi/simple --trusted-host {{ pypi_custom_host | urlsplit('hostname') }}"
+    extra_args: "-i {{ pypi_custom_host }}/simple --trusted-host {{ pypi_custom_host | urlsplit('hostname') }}"
   when: mongodb_pymongo_from_pip | bool
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
